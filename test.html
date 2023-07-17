@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JAVA Tour & Travel</title>
+    <!-- Tautan CSS Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
+    <!-- Tautan Font Google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <!-- Gaya Kustom -->
+    <style>
+        /* Gaya Kustom Tambahan */
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding-top: 70px; /* Menyesuaikan tinggi header */
+        }
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background-color: #ffffff; /* Ubah warna header */
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .header img {
+            height: 50px;
+            margin-left: 15px;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        
+        .dropdown-menu {
+            background-color: #ffffff;
+        }
+        
+        .dropdown-item {
+            color: #000000;
+        }
+        
+        .sidebar {
+            position: fixed;
+            top: 80px; /* Menghindari tertutup oleh header */
+            left: -190px; /* Menyembunyikan sidebar di awal */
+            bottom: 0;
+            z-index: 999;
+            width: 200px;
+            background-color: #0e3151;
+            color: #fff;
+            padding: 20px;
+            transition: left 0.3s; /* Animasi saat toggle */
+        }
+        
+        .sidebar.open {
+            left: 0; /* Membuka sidebar saat ditampilkan */
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+        
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .jumbotron {
+            margin-top: 170px; /* Menyesuaikan tinggi header dan sidebar */
+            background-color: #0e3151;
+            color: #fff;
+            padding: 100px;
+        }
+        
+        .jumbotron h1 {
+            font-size: 48px;
+            font-weight: bold;
+        }
+        
+        .jumbotron p {
+            font-size: 18px;
+        }
+        
+        .feature {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .feature i {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .footer {
+            background-color: #0e3151;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 9999;
+            color: #fff;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <img src="logo.png" alt="Logo" /> <!-- Ganti 'logo.png' dengan URL atau nama file gambar logo Anda -->
+            <!-- <h1>JAVA Tour & Travel</h1> -->
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Menu Dropdown
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Menu 1</a>
+                    <a class="dropdown-item" href="#">Menu 2</a>
+                    <a class="dropdown-item" href="#">Menu 3</a>
+                    <a class="dropdown-item" href="#">Menu 4</a>
+                    <a class="dropdown-item" href="#">Menu 5</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="sidebar" id="sidebar">
+        <div class="toggle-btn" id="toggleBtn">&#9776;</div>
+        <ul>
+            <li><a href="#">Menu 1</a></li>
+            <li><a href="#">Menu 2</a></li>
+            <li><a href="#">Menu 3</a></li>
+            <li><a href="#">Menu 4</a></li>
+            <li><a href="#">Menu 5</a></li>
+        </ul>
+    </div>
+    
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Welcome to Our Website</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 feature">
+                <i class="bi bi-laptop"></i>
+                <h3>Responsive Design</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="col-md-4 feature">
+                <i class="bi bi-palette"></i>
+                <h3>Beautiful UI</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="col-md-4 feature">
+                <i class="bi bi-chat-dots"></i>
+                <h3>Great Support</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        &copy; 2023 My Website. All rights reserved.
+    </div>
+    
+    <!-- Skrip JavaScript Bootstrap (Opsional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.min.js"></script>
+    <!-- Skrip JavaScript Kustom -->
+    <script>
+        // Mendapatkan elemen toggle button dan sidebar
+        const toggleBtn = document.getElementById('toggleBtn');
+        const sidebar = document.getElementById('sidebar');
+        
+        // Fungsi untuk mengatur toggle sidebar
+        function toggleSidebar() {
+            sidebar.classList.toggle('open');
+        }
+        
+        // Menambahkan event listener untuk toggle button
+        toggleBtn.addEventListener('click', toggleSidebar);
+    </script>
+</body>
+</html>
